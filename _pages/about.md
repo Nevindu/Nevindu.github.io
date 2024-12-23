@@ -10,7 +10,7 @@ subtitle: >
   </h4>
 
 profile:
-  image: Nevindu.jpg
+  image: Nevindu.jpeg
   image_circular: true # crops the image to make it circular
   # more_info: >
   #   <p>555 your office number</p>
