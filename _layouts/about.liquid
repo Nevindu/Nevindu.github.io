@@ -15,6 +15,36 @@ layout: default
   </header>
 
   <article>
+
+    <hr />
+
+    <div class="clearfix">{{ content }}</div>
+
+    <hr />
+
+    <div class="timeline">
+      {% for entry in page.timeline -%}
+      <div class="entry row">
+        <div class="timespan col-sm-2">
+          {{ entry.timespan }}
+          <div class="dot"></div>
+        </div>
+        <div class="description col-sm-9">
+          <h3>{{ entry.title }}</h3>
+          <p>{{ entry.description }}</p>
+        </div>
+        {%- assign entry_image_path = entry.image | prepend: 'assets/img/' -%}
+        <div class="image col-sm-1">
+          <img
+            src="{{ entry_image_path }}"
+            alt="{{ entry.image_alt }}"
+            class="img-fluid"
+          />
+        </div>
+      </div>
+      {%- endfor %}
+    </div>
+
     {% if page.profile %}
       <div class="profile float-{% if page.profile.align == 'left' %}left{% else %}right{% endif %}">
         {% if page.profile.image %}
