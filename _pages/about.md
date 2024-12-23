@@ -25,7 +25,7 @@ timeline:
     title: University of Wisconsin - Madison
     description: Presently a Graduate Research Assistant at the <a href="https://sbel.wisc.edu/">Simulation-Based Engineering Laboratory (SBEL)</a> advised by <a href="https://sbel.wisc.edu/negrut-dan/)">Prof. Dan Negrut</a>
     image: uw.png
-    - 
+  - 
     timespan: 2019  - 2023
     title: University of Wisconsin - Madison
     description: Graduated with Comprehensive Honors and Distinction with a B.S in Computer Science and Data Science. In my Junior year, I joined the <a href="https://sbel.wisc.edu/">Simulation-Based Engineering Laboratory (SBEL)</a> advised by <a href="https://sbel.wisc.edu/negrut-dan/)">Prof. Dan Negrut</a> developing the ray tracing based sensor simulation engine <a href="https://api.projectchrono.org/sensor_overview.html">Chrono::Sensor</a>. I was also part of the leadership team as a Technical Advisor for <a href="https://wa.wisc.edu">Wisconsin Autonomous</a>, a student organization that competed in the <a href="https://www.sae.org/attend/student-events/autodrive-challenge-series2">SAE AutoDrive Challenge</a>, a three-year competition to develop a self-driving car.
