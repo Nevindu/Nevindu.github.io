@@ -10,9 +10,7 @@ subtitle: >
   </h4>
 
 profile:
-  align: right
   image: Nevindu.jpeg
-  image_circular: true
 
 
 timeline:
