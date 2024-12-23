@@ -2,7 +2,7 @@
 layout: default
 ---
 
-<!-- about.html -->
+<!-- about.liquid -->
 <div class="post">
   <header class="post-header">
     <div class="row">
@@ -62,7 +62,7 @@ layout: default
         >selected publications</a
       >
     </h2>
-    {%- include selected_papers.html %} {%- endif %}
+    {%- include selected_papers.liquid %} {%- endif %}
 
     <!-- News -->
     {% if page.news and site.announcements.enabled and site.news != blank -%}
@@ -70,7 +70,7 @@ layout: default
     <h2>
       <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
     </h2>
-    {%- include news.html limit=true %} {%- endif %}
+    {%- include news.liquid limit=true %} {%- endif %}
 
     <!-- Latest posts -->
     {% if page.latest_posts and site.posts != blank -%}
@@ -80,13 +80,13 @@ layout: default
         >latest posts</a
       >
     </h2>
-    {%- include latest_posts.html %} {%- endif %}
+    {%- include latest_posts.liquid %} {%- endif %}
 
     <!-- Social -->
     {%- if page.social %}
     <hr />
     <div class="social">
-      <div class="contact-icons">{% include social.html %}</div>
+      <div class="contact-icons">{% include social.liquid %}</div>
 
       <div class="contact-note">{{ site.contact_note }}</div>
     </div>
