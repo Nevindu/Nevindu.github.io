@@ -1,14 +1,9 @@
-(() => {
-  const copyButton = document.querySelector("[data-copy-target]");
-  const backToTop = document.querySelector(".back-to-top");
+(function () {
+  var copyButton = document.querySelector("[data-copy-target]");
+  var backToTop = document.querySelector(".back-to-top");
 
-  const copyText = async (text) => {
-    if (navigator.clipboard && window.isSecureContext) {
-      await navigator.clipboard.writeText(text);
-      return;
-    }
-
-    const textArea = document.createElement("textarea");
+  function fallbackCopyText(text) {
+    var textArea = document.createElement("textarea");
     textArea.value = text;
     textArea.setAttribute("readonly", "");
     textArea.style.position = "fixed";
@@ -16,34 +11,62 @@
     document.body.appendChild(textArea);
     textArea.select();
     document.execCommand("copy");
-    textArea.remove();
-  };
+    textArea.parentNode.removeChild(textArea);
+  }
 
-  copyButton?.addEventListener("click", async () => {
-    const target = document.getElementById(copyButton.dataset.copyTarget);
-    if (!target) return;
+  function setCopySuccess(label) {
+    label.textContent = "Copied";
+    copyButton.setAttribute("aria-live", "polite");
+    window.setTimeout(function () {
+      label.textContent = "Copy";
+    }, 1800);
+  }
 
-    const label = copyButton.querySelector("span");
-    try {
-      await copyText(target.innerText.trim());
-      label.textContent = "Copied";
-      copyButton.setAttribute("aria-live", "polite");
-      window.setTimeout(() => {
-        label.textContent = "Copy";
-      }, 1800);
-    } catch {
-      label.textContent = "Select text";
+  function setCopyFailure(label) {
+    label.textContent = "Select text";
+  }
+
+  if (copyButton) {
+    copyButton.addEventListener("click", function () {
+      var targetId = copyButton.getAttribute("data-copy-target");
+      var target = document.getElementById(targetId);
+      var label = copyButton.querySelector("span");
+
+      if (!target || !label) return;
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(target.innerText.trim()).then(
+          function () {
+            setCopySuccess(label);
+          },
+          function () {
+            setCopyFailure(label);
+          }
+        );
+        return;
+      }
+
+      try {
+        fallbackCopyText(target.innerText.trim());
+        setCopySuccess(label);
+      } catch (error) {
+        setCopyFailure(label);
+      }
+    });
+  }
+
+  function updateBackToTop() {
+    if (backToTop) {
+      backToTop.classList.toggle("is-visible", window.scrollY > 650);
     }
-  });
-
-  const updateBackToTop = () => {
-    backToTop?.classList.toggle("is-visible", window.scrollY > 650);
-  };
+  }
 
   window.addEventListener("scroll", updateBackToTop, { passive: true });
   updateBackToTop();
 
-  backToTop?.addEventListener("click", () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  });
+  if (backToTop) {
+    backToTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
 })();

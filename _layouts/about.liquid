@@ -1,23 +1,23 @@
 ---
 layout: default
 ---
-
 <!-- about.liquid -->
 <div class="post">
   <header class="post-header">
     <div class="row">
       <div class="col-md-3">
-        {%- assign profile_image_path = page.profile.image | prepend:
-        'assets/img/' -%}
+        {%- assign profile_image_path = page.profile.image | prepend: 'assets/img/' -%}
         <img
           src="{{ profile_image_path }}"
           alt="{{ profile_image_path }}"
           class="img-fluid rounded-circle"
-        />
+        >
       </div>
       <div class="col-md-9">
         <h1 class="post-title">
-          {{site.first_name}} {{ site.middle_name }} {{site.last_name}}
+          {{ site.first_name }}
+          {{ site.middle_name }}
+          {{ site.last_name }}
         </h1>
         <p class="desc">{{ page.subtitle }}</p>
       </div>
@@ -25,71 +25,70 @@ layout: default
   </header>
 
   <article>
-    <hr />
+    <hr>
 
     <div class="clearfix">{{ content }}</div>
 
-    <hr />
+    <hr>
 
     <div class="timeline">
       {% for entry in page.timeline -%}
-      <div class="entry row">
-        <div class="timespan col-sm-2">
-          {{ entry.timespan }}
-          <div class="dot"></div>
+        <div class="entry row">
+          <div class="timespan col-sm-2">
+            {{ entry.timespan }}
+            <div class="dot"></div>
+          </div>
+          <div class="description col-sm-9">
+            <h3>{{ entry.title }}</h3>
+            <p>{{ entry.description }}</p>
+          </div>
+          {%- assign entry_image_path = entry.image | prepend: 'assets/img/' -%}
+          <div class="image col-sm-1">
+            <img
+              src="{{ entry_image_path }}"
+              alt="{{ entry.image_alt }}"
+              class="img-fluid"
+            >
+          </div>
         </div>
-        <div class="description col-sm-9">
-          <h3>{{ entry.title }}</h3>
-          <p>{{ entry.description }}</p>
-        </div>
-        {%- assign entry_image_path = entry.image | prepend: 'assets/img/' -%}
-        <div class="image col-sm-1">
-          <img
-            src="{{ entry_image_path }}"
-            alt="{{ entry.image_alt }}"
-            class="img-fluid"
-          />
-        </div>
-      </div>
       {%- endfor %}
     </div>
 
     <!-- Selected papers -->
     {% if page.selected_papers -%}
-    <hr />
-    <h2>
-      <a href="{{ '/publications/' | relative_url }}" style="color: inherit"
-        >selected publications</a
-      >
-    </h2>
-    {%- include selected_papers.liquid %} {%- endif %}
+      <hr>
+      <h2>
+        <a href="{{ '/publications/' | relative_url }}" style="color: inherit">selected publications</a>
+      </h2>
+      {%- include selected_papers.liquid %}
+    {%- endif %}
 
     <!-- News -->
     {% if page.news and site.announcements.enabled and site.news != blank -%}
-    <hr />
-    <h2>
-      <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
-    </h2>
-    {%- include news.liquid limit=true %} {%- endif %}
+      <hr>
+      <h2>
+        <a href="{{ '/news/' | relative_url }}" style="color: inherit">news</a>
+      </h2>
+      {%- include news.liquid limit=true %}
+    {%- endif %}
 
     <!-- Latest posts -->
     {% if page.latest_posts and site.posts != blank -%}
-    <hr />
-    <h2>
-      <a href="{{ '/blog/' | relative_url }}" style="color: inherit"
-        >latest posts</a
-      >
-    </h2>
-    {%- include latest_posts.liquid %} {%- endif %}
+      <hr>
+      <h2>
+        <a href="{{ '/blog/' | relative_url }}" style="color: inherit">latest posts</a>
+      </h2>
+      {%- include latest_posts.liquid %}
+    {%- endif %}
 
     <!-- Social -->
     {%- if page.social %}
-    <hr />
-    <div class="social">
-      <div class="contact-icons">{% include social.liquid %}</div>
+      <hr>
+      <div class="social">
+        <div class="contact-icons">{% include social.liquid %}</div>
 
-      <div class="contact-note">{{ site.contact_note }}</div>
-    </div>
+        <div class="contact-note">{{ site.contact_note }}</div>
+      </div>
     {%- endif %}
   </article>
 </div>
