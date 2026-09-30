@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>ShutterEvents | ICCP 2026</title>
+    <meta
+      name="description"
+      content="ShutterEvents uses a programmable LCD shutter to recover static scene content while preserving the dynamic sensing capabilities of an event camera."
+    />
+    <meta name="author" content="Nevindu M. Batagoda, Ramchander Rao Bhaskara, Christopher Metzler, Adithya Pediredla" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="canonical" href="https://nevindu.github.io/publications/shutterevents/" />
+    <link rel="icon" type="image/svg+xml" href="static/images/favicon.svg" />
+    <link rel="stylesheet" href="static/css/index.css" />
+
+    <meta property="og:type" content="article" />
+    <meta property="og:site_name" content="Nevindu M. Batagoda" />
+    <meta property="og:title" content="ShutterEvents: Shutter Modulation for Static-Dynamic Scene Recovery" />
+    <meta
+      property="og:description"
+      content="A lightweight event-camera sensing framework for simultaneous recovery of static and dynamic scene content."
+    />
+    <meta property="og:url" content="https://nevindu.github.io/publications/shutterevents/" />
+    <meta property="og:image" content="https://nevindu.github.io/publications/shutterevents/static/images/teaser.png" />
+    <meta property="og:image:alt" content="The ShutterEvents sensing and reconstruction pipeline" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="ShutterEvents | ICCP 2026" />
+    <meta name="twitter:description" content="Recover static scene content with an event camera while preserving dynamic fidelity." />
+    <meta name="twitter:image" content="https://nevindu.github.io/publications/shutterevents/static/images/teaser.png" />
+
+    <meta name="citation_title" content="ShutterEvents: Shutter Modulation for Static-Dynamic Scene Recovery" />
+    <meta name="citation_author" content="Batagoda, Nevindu M." />
+    <meta name="citation_author" content="Bhaskara, Ramchander Rao" />
+    <meta name="citation_author" content="Metzler, Christopher" />
+    <meta name="citation_author" content="Pediredla, Adithya" />
+    <meta name="citation_publication_date" content="2026" />
+    <meta name="citation_conference_title" content="IEEE International Conference on Computational Photography (ICCP)" />
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+
+    <main id="main-content">
+      <header class="hero">
+        <h1>ShutterEvents: Shutter Modulation for Static-Dynamic Scene Recovery</h1>
+
+        <p class="authors" aria-label="Paper authors">
+          <a href="../../">Nevindu M. Batagoda</a>, <a href="https://ram-bhaskara.github.io/">Ramchander Rao Bhaskara</a>,
+          <a href="https://www.cs.umd.edu/~metzler/">Christopher Metzler</a>, and
+          <a href="https://web.cs.dartmouth.edu/people/adithya-k-pediredla">Adithya Pediredla</a>
+        </p>
+
+        <p class="venue">IEEE International Conference on Computational Photography (ICCP 2026)</p>
+
+        <div class="publication-links" aria-label="Publication resources">
+          <a class="publication-link" href="https://ieeexplore.ieee.org/document/11668882" target="_blank" rel="noopener">Paper</a>
+        </div>
+      </header>
+
+      <figure class="teaser">
+        <img
+          src="static/images/teaser.svg"
+          width="1996"
+          height="864"
+          alt="ShutterEvents system schematic, hardware prototype, shutter events, calibration curve, static reconstruction, and separated dynamic events"
+        />
+      </figure>
+
+      <section class="content-section" aria-labelledby="abstract-title">
+        <h2 id="abstract-title">Abstract</h2>
+        <div class="abstract">
+          <p>
+            Event cameras capture changes in log intensity asynchronously, enabling high temporal resolution and dynamic range for dynamic scenes.
+            However, because they respond only to intensity changes, they are fundamentally insensitive to static or slowly varying content, leading
+            existing event-to-video methods to rely on camera motion or hallucinate missing structure. Prior efforts to recover static information
+            either exploit Poisson noise events—requiring long integration times—or employ mechanical shutters to convert event cameras into intensity
+            sensors, sacrificing temporal resolution.
+          </p>
+          <p>
+            We introduce <em>ShutterEvents</em>, a lightweight sensing framework that enables simultaneous recovery of static and dynamic scene
+            content using a low-cost ($7) programmable LCD shutter. By imposing controlled temporal modulation on incoming light, static intensities
+            are transformed into predictable brightness variations that generate informative events even under a stationary camera. We show that the
+            induced mapping between event statistics and scene intensity is injective, enabling a learning-free reconstruction of static structure
+            directly from event measurements.
+          </p>
+          <p>
+            To separate shutter-induced responses from true scene dynamics, we propose an event decomposition algorithm that leverages the global
+            temporal synchronization introduced by the modulation signal. Experiments on both simulated and real data demonstrate that ShutterEvents
+            recovers meaningful static structure while preserving dynamic fidelity, without long integration times and with minimal hardware overhead.
+          </p>
+        </div>
+      </section>
+
+      <section class="content-section bibtex" aria-labelledby="bibtex-title">
+        <h2 id="bibtex-title">BibTeX</h2>
+        <pre><code>TBD</code></pre>
+      </section>
+    </main>
+  </body>
+</html>
