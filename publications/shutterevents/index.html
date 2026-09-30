@@ -22,7 +22,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="static/css/index.css" />
+    <link rel="stylesheet" href="static/css/index.css?v=rich-20260930" />
 
     <meta property="og:type" content="article" />
     <meta property="og:site_name" content="Nevindu M. Batagoda" />
@@ -108,9 +108,7 @@
             Preserve the motion that does not.
           </p> -->
 
-           <p class="hero__dek">
-            Learning free reconstruction of static and dynamic scenes using Event Cameras.
-          </p>
+          <p class="hero__dek">Learning free reconstruction of static and dynamic scenes using Event Cameras.</p>
 
           <div class="authors" aria-label="Paper authors">
             <a href="../../">Nevindu M. Batagoda<sup>*1</sup></a>
@@ -198,7 +196,8 @@
             <p class="kicker">Method at a glance</p>
             <h2 id="method-title">Static + dynamic scene reconstruction.<br />One event camera.</h2>
             <p>
-              ShutterEvents modulates the light incident on the event camera, using a low-cost LCD shutter and uses the resulting event statistics to reconstruct both static and dynamic scenes.
+              ShutterEvents modulates the light incident on the event camera, using a low-cost LCD shutter and uses the resulting event statistics to
+              reconstruct both static and dynamic scenes.
             </p>
           </div>
 
@@ -227,7 +226,10 @@
               </div>
               <h3>Reconstruct</h3>
               <!-- <p>A monotonic, calibrated event-count-to-intensity lookup table recovers static structure without a learned prior.</p> -->
-               <p> Shutter modulation creates a monotonic relationship between event counts and intensity, enabling scene reconstruction without the need for a learned prior.</p>
+              <p>
+                Shutter modulation creates a monotonic relationship between event counts and intensity, enabling scene reconstruction without the need
+                for a learned prior.
+              </p>
             </article>
 
             <article class="method-card">
@@ -240,7 +242,10 @@
               </div>
               <h3>Separate</h3>
               <!-- <p>Harmonic notch filtering suppresses the globally synchronized shutter signal and retains motion-driven events.</p> -->
-               <p> Preserve the dynamic sensing capabilities of the event camera by suppressing the shutter frequencies in the modulated event signal to separate static and dynamic components.</p>
+              <p>
+                Preserve the dynamic sensing capabilities of the event camera by suppressing the shutter frequencies in the modulated event signal to
+                separate static and dynamic components.
+              </p>
             </article>
           </div>
         </div>
@@ -328,6 +333,6 @@
       <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 15 6-6 6 6"></path></svg>
     </button>
 
-    <script src="static/js/index.js"></script>
+    <script src="static/js/index.js?v=rich-20260930"></script>
   </body>
 </html>
